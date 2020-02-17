@@ -1,0 +1,6 @@
+.vscode
+.idea
+dist/.npmrc
+.dev
+node_modules
+dist

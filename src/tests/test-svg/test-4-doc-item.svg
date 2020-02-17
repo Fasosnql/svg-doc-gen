@@ -1,0 +1,52 @@
+<svg version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 24 24">
+    <defs>
+        <g id="def-icon1.svg">
+            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+        </g>
+        <g id="def-icon2.svg">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/>
+        </g>
+        <g id="def-icon3.svg">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/>
+        </g>
+        <g id="def-icon4.svg">
+            <path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </g>
+    </defs>
+    <!--
+        @SVGDoc
+        name: Icon1
+        variable: icon1
+    -->
+    <svg id="icon1.svg">
+         <use xlink:href="#def-icon1.svg"/>
+    </svg>
+    <!--
+        @SVGDoc
+        name: Icon2
+        variable: icon2
+    -->
+    <svg id="icon2.svg">
+        <use xlink:href="#def-icon2.svg"/>
+    </svg>
+    <!--
+        @SVGDoc
+        name: Icon3
+        variable: icon4
+    -->
+    <svg id="icon2.svg">
+        <use xlink:href="#def-icon2.svg"/>
+    </svg>
+    <!--
+        @SVGDoc
+        name: Icon4
+        variable: icon4
+    -->
+    <svg id="icon4.svg">
+        <use xlink:href="#def-icon4.svg"/>
+    </svg>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "name": "svg-doc-gen-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "webpack": "webpack --config webpack.config.js",
+    "webpack-dev": "webpack --config .dev/webpack.dev.js"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "author": "Przemysław Nowak <nowak_przemek@yahoo.com>",
+  "license": "ISC",
+  "dependencies": {
+    "schema-utils": "^2.6.4",
+    "svg-doc-gen": "0.0.1"
+  }
+}
