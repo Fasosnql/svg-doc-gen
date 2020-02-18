@@ -10,7 +10,7 @@
 # SVG Doc Generator
 This plugin generates demo and css/less/scss variables based on doc comment inside you sprites.svg file.
 
-For now it is working only with sprites files, but in future it will be extended to usage it with multiple svg files. You can read more about creating sprites in [this article] (https://css-tricks.com/svg-fragment-identifiers-work/)
+For now it is working only with sprites files, but in future it will be extended to usage it with multiple svg files. You can read more about creating sprites in [this article][css-trick-url].
 
 ## Getting Started
 First of all you have to install `svg-doc-gen`
@@ -80,7 +80,7 @@ From above svg file output will be look like below:
 `styles/svg-vars.css`:
 ```css
 :root {
---icon1: "/path-to-sprites/sprites.svg#black/baseline-close-24px.svg";
+--icon1: "/path-to-sprites/sprites.svg#icon1.svg";
 }
 ```
 
@@ -107,3 +107,4 @@ htmlConfig: {
 [MIT](./LICENSE)
 
 [npm-url]: https://www.npmjs.com/package/svg-doc-gen
+[css-trick-url]: https://css-tricks.com/svg-fragment-identifiers-work/
