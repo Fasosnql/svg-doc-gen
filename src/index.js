@@ -49,7 +49,7 @@ class SVGDocGen {
     compiler.hooks.done.tap('SVGDocGen', () => {
       const docs = SVGDocGen.mapDocsElement(
         SVGDocGen.getDocsElementsFromFile(this.options.svgDefsPath),
-        this.styleOptions.styleLang
+        this.styleOptions.styleLang || styleLangs.css
       );
 
       if (this.htmlConfig.outputPath) {
@@ -58,7 +58,7 @@ class SVGDocGen {
 
         docs.forEach(doc => {
           iconsHtml += iconHtmlTemplate
-            .replace('<% iconPath %>', `${this.htmlConfig.svgPathInFile}#${doc.svgId}`)
+            .replace('<% iconPath %>', `${this.htmlConfig.svgPathInFile || this.options.svgDefsPath}#${doc.svgId}`)
             .replace('<% iconName %>', doc.name)
             .replace('<% variableName %>', doc.variable)
         });
@@ -71,7 +71,7 @@ class SVGDocGen {
       if (this.styleOptions.outputPath) {
         let variables = '';
         docs.forEach(doc => {
-          variables += `${doc.variable}: "${this.styleOptions.svgPathInFile}#${doc.svgId}";\n`;
+          variables += `${doc.variable}: "${this.styleOptions.svgPathInFile || this.options.svgDefsPath}#${doc.svgId}";\n`;
         });
 
         if (this.styleOptions.styleLang === styleLangs.css || !this.styleOptions.styleLang) {
