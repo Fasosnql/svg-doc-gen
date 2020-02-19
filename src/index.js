@@ -2,6 +2,8 @@ const fs = require('fs');
 const validateOptions = require('schema-utils');
 const schema = require('./schema');
 const { styleLangs, styleLangsVars, regexes } = require('./models');
+const demoHtml = require('./templates/demo.html');
+const iconHtml = require('./templates/icon.html');
 
 class SVGDocGen {
   constructor(options) {
@@ -53,7 +55,7 @@ class SVGDocGen {
       );
 
       if (this.htmlConfig.outputPath) {
-        const iconHtmlTemplate = getIconHtmlOutputTemplate();
+        const iconHtmlTemplate = iconHtml;
         let iconsHtml = '';
 
         docs.forEach(doc => {
@@ -63,7 +65,7 @@ class SVGDocGen {
             .replace('<% variableName %>', doc.variable)
         });
 
-        const htmlTemplate = getHtmlOutputTemplate().replace('<% icons %>', iconsHtml);
+        const htmlTemplate = demoHtml.replace('<% icons %>', iconsHtml);
 
         SVGDocGen.writeFile(this.htmlConfig, htmlTemplate);
       }
@@ -86,14 +88,6 @@ class SVGDocGen {
 
 function getDirPath(path) {
   return path.replace(/\/?[^\/]+$/, '');
-}
-
-function getHtmlOutputTemplate() {
-  return fs.readFileSync('./src/templates/demo.html', 'utf8');
-}
-
-function getIconHtmlOutputTemplate() {
-  return fs.readFileSync('./src/templates/icon.html', 'utf8');
 }
 
 module.exports = SVGDocGen;

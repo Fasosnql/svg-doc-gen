@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: `./src/index.js`,
@@ -14,5 +15,18 @@ module.exports = {
     globalObject: 'this'
   },
   target: 'node',
-  externals: [nodeExternals()]
+  externals: [nodeExternals()],
+  module: {
+    rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+    ],
+  },
+  plugins: [
+    new CopyPlugin([
+      { from: 'src/templates', to: 'templates' },
+    ]),
+  ],
 };
