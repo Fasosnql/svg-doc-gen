@@ -38,13 +38,15 @@ class SVGDocGen {
   static writeFile(outputConfig, output) {
     const dirPath = getDirPath(outputConfig.outputPath);
 
-    if (dirPath) {
-      fs.promises.mkdir(dirPath, { recursive: true }).then(() => {
+    fs.unlink(outputConfig.outputPath, function (err) {
+      if (dirPath) {
+        fs.promises.mkdir(dirPath, { recursive: true }).then(() => {
+          fs.writeFileSync(outputConfig.outputPath, output);
+        }).catch(console.error);
+      } else {
         fs.writeFileSync(outputConfig.outputPath, output);
-      }).catch(console.error);
-    } else {
-      fs.writeFileSync(outputConfig.outputPath, output);
-    }
+      }
+    });
   }
 
   apply(compiler) {
