@@ -7,6 +7,7 @@ const iconHtml = require('./templates/icon.html');
 
 class SVGDocGen {
   constructor(options) {
+    this.oldSprite = null;
     validateOptions(schema, options);
     this.options = options;
     this.htmlConfig = this.options['htmlConfig'];
@@ -37,7 +38,6 @@ class SVGDocGen {
 
   static writeFile(outputConfig, output) {
     const dirPath = getDirPath(outputConfig.outputPath);
-
     fs.unlink(outputConfig.outputPath, function (err) {
       if (dirPath) {
         fs.promises.mkdir(dirPath, { recursive: true }).then(() => {
@@ -51,6 +51,11 @@ class SVGDocGen {
 
   apply(compiler) {
     compiler.hooks.done.tap('SVGDocGen', () => {
+      if (this.oldSprite && JSON.stringify(this.oldSprite) === JSON.stringify(SVGDocGen.getDocsElementsFromFile(this.options.svgDefsPath))) {
+        return;
+      } else {
+        this.oldSprite = SVGDocGen.getDocsElementsFromFile(this.options.svgDefsPath);
+      }
       const docs = SVGDocGen.mapDocsElement(
         SVGDocGen.getDocsElementsFromFile(this.options.svgDefsPath),
         this.styleOptions.styleLang || styleLangs.css
