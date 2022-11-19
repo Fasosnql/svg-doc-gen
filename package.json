@@ -14,7 +14,7 @@
     "jest": "^25.1.0",
     "svg-doc-gen": "1.0.0",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   },
   "author": "Przemysław Nowak <nowak_przemek@yahoo.com>",
